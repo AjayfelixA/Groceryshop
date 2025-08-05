@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreshMart - Vegetables</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f9fff9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #66BB6A, #43A047);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #388E3C;
+            margin-bottom: 20px;
+            border-left: 6px solid #388E3C;
+            padding-left: 15px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product {
+            background: linear-gradient(to bottom right, #eaffea, #ffffff);
+            border-radius: 12px;
+            padding: 15px;
+            width: 240px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            color: #2E7D32;
+        }
+
+        .product p {
+            font-weight: bold;
+            color: #444;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Vegetables</h1>
+</header>
+
+<div class="container">
+    <h2>🥕 Fresh Vegetables</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="tomato.avif" alt="Tomato">
+            <h3>Red Tomatoes</h3>
+            <p>₹30 / kg</p>
+        </div>
+        <div class="product">
+            <img src="carrot.avif" alt="Carrot">
+            <h3>Crunchy Carrots</h3>
+            <p>₹40 / kg</p>
+        </div>
+        <div class="product">
+            <img src="potato.avif" alt="Potato">
+            <h3>Fresh Potatoes</h3>
+            <p>₹25 / kg</p>
+        </div>
+        <div class="product">
+            <img src="spinach.avif" alt="Spinach">
+            <h3>Green Spinach</h3>
+            <p>₹15 / bunch</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 FreshMart Grocery | All Rights Reserved
+</footer>
+
+</body>
+</html>

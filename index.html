@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FreshMart Grocery Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fffdf5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #FF6F00, #FFA000);
+            padding: 30px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right input[type="text"] {
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            width: 250px;
+            outline: none;
+        }
+
+        .header-right button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #FF6F00;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-right button:hover {
+            background-color: #ffe0b2;
+        }
+
+        .categories, .daily-staples {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            border-left: 5px solid #FF6F00;
+            padding-left: 15px;
+            color: #FF6F00;
+            margin-bottom: 20px;
+        }
+
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+        }
+
+        .category {
+            background: linear-gradient(to bottom right, #fff3e0, #ffffff);
+            padding: 30px 10px;
+            text-align: center;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            background: #ffe0b2;
+            transform: scale(1.05);
+        }
+
+        .category a {
+            text-decoration: none;
+            color: #E65100;
+            display: block;
+        }
+
+        .ad-banner {
+            position: relative;
+            max-width: 60%;
+            height: 300px;
+            margin: 60px auto 40px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .ad-banner {
+    position: relative;
+    max-width: 60%;
+    height: 250px;
+    margin: 60px auto 40px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.ad-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transform: translateX(100%);
+}
+
+.ad-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.ad-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.ad-slide.prev {
+    transform: translateX(-100%);
+}
+
+.ad-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.ad-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ad-dot.active {
+    background-color: #FF6F00;
+}
+
+
+        @keyframes fadeEffect {
+            from {opacity: 0.4;}
+            to {opacity: 1;}
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-right {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>FreshMart</h1>
+    <div class="header-right">
+        <input type="text" placeholder="Search for products...">
+        <button>Login</button>
+        <button>Sign Up</button>
+    </div>
+</header>
+
+<div class="categories">
+    <h2>🛒 Shop by Category</h2>
+    <div class="category-list">
+        <div class="category"><a href="fruits.html">🍎 Fruits</a></div>
+        <div class="category"><a href="vegetables.html">🥕 Vegetables</a></div>
+        <div class="category"><a href="stationery.html">📚 Stationery</a></div>
+        <div class="category"><a href="toiletries.html">🧼 Toiletries</a></div>
+        <div class="category"><a href="oils.html">🛢️ Oils</a></div>
+        <div class="category"><a href="masalas.html">🌶️ Masalas</a></div>
+        <div class="category"><a href="dairy.html">🥛 Dairy</a></div>
+        <div class="category"><a href="chocolates.html">🍫 Chocolates</a></div>
+    </div>
+</div>
+
+<div class="daily-staples">
+    <h2>🌟 Your Daily Staples</h2>
+    <div class="category-list">
+        <div class="category"><a href="#">🥤 Beverages</a></div>
+        <div class="category"><a href="#">🍪 Snacks</a></div>
+        <div class="category"><a href="#">🧹 Cleaning & Household</a></div>
+        <div class="category"><a href="#">💄 Beauty & Hygiene</a></div>
+        <div class="category"><a href="#">🏠 Home & Kitchen</a></div>
+    </div>
+</div>
+
+
+<!-- Ad Slideshow Banner -->
+<div class="ad-banner">
+    <div class="ad-slide"><img src="images/ad1.jpg" alt="Ad 1"></div>
+    <div class="ad-slide"><img src="images/ad2.jpg" alt="Ad 2"></div>
+    <div class="ad-slide"><img src="images/ad3.jpg" alt="Ad 3"></div>
+</div>
+
+<!-- Ad Dots -->
+<div class="ad-dots">
+    <span class="ad-dot"></span>
+    <span class="ad-dot"></span>
+    <span class="ad-dot"></span>
+</div>
+<!-- Info About bigbasket -->
+<div class="bigbasket-info" style="max-width: 900px; margin: 40px auto; padding: 20px; background: #fffaf0; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); font-size: 1.1em; line-height: 1.7;">
+    <h2 style="color: #FF6F00; border-left: 5px solid #FF6F00; padding-left: 10px;">🛍️ bigbasket – Online Grocery Store</h2>
+    <p>
+        Did you ever imagine that the freshest of fruits and vegetables, top-quality pulses and food grains, dairy products, and hundreds of branded items could be handpicked and delivered to your home, all at the click of a button? In today's fast-paced world, bigbasket.com, India's pioneering online grocery store, continues to bring a staggering array of over 40,000 products from more than 1,000 brands to the doorsteps of over 10 million satisfied customers. From essential household cleaning products to the latest beauty and makeup trends, bigbasket remains your one-stop shop for daily needs.
+    </p>
+    <p>
+        In these times, we've eliminated the stress associated with shopping for daily essentials. You can now effortlessly order all your household products and groceries online. Plus, the added convenience of finding all your requirements at a single source, coupled with substantial savings, demonstrates that bigbasket, India's largest online supermarket, has transformed the way we shop for groceries. Online grocery shopping has become second nature. And when it comes to freshness, whether it's fruits and vegetables or dairy and meat, we've got you covered! Easily obtain fresh eggs, meat, fish, and more with just a few clicks.
+    </p>
+    <p>
+        We now serve 300+ cities and towns across India and ensure swift delivery times, guaranteeing that all your groceries, snacks and branded foods reach you on time.
+    </p>
+    <p>
+        <strong>Slotted Delivery:</strong> Choose the most convenient delivery slot to receive your groceries, ranging from early morning delivery for early birds to late-night delivery for those on the night shift. bigbasket caters to every schedule.
+    </p>
+    <p>
+        <strong>Instant delivery from bbnow:</strong> In response to the ever-increasing demand for convenience, bbnow by bigbasket offers lightning-fast grocery delivery, ensuring that your essentials are at your doorstep within 15–30 minutes. Our quick delivery service has revolutionized the way you shop for groceries. Choose from 5000+ grocery essentials. bbnow is available only in select cities.
+    </p>
+    <p>
+        Whether it's a last-minute dinner party or you simply need something urgently, we've got you covered. This service exemplifies our commitment to providing you with not just the widest range of products but also the fastest and most efficient shopping experience, making bigbasket.com the go-to destination for all your immediate grocery needs.
+    </p>
+</div>
+
+
+<footer>
+    <!-- Footer -->
+<footer style="background-color: #000; color: #fff; padding: 40px 20px; margin-top: 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: auto;">
+        <div>
+            <h3 style="color: #fbbc04;">Bigbasket</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: #ccc; text-decoration: none;">About Us</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">In News</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Green bigbasket</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Privacy Policy</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Affiliate</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Terms and Conditions</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #fbbc04;">bb Daily</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Help</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">FAQs</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #fbbc04;">bb Wallet</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: #ccc; text-decoration: none;">bb Wallet FAQs</a></li>
+                <li><a href="#" style="color: #ccc; text-decoration: none;">bb Wallet T&Cs</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #fbbc04;">Vendor</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="#" style="color: #ccc; text-decoration: none;">Vendor Connect</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #888;">
+        © 2025 Bigbasket. All rights reserved.
+    </div>
+</footer>
+<!-- App Download & Social Icons -->
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 40px; border-top: 1px solid #444; padding-top: 30px;">
+    
+    <!-- Social Media Icons -->
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 30px;"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 30px;"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width: 30px;"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 30px;"></a>
+        <a href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="GitHub" style="width: 30px;"></a>
+    </div>
+
+    <!-- App Store Logos -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="#" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 40px;">
+        </a>
+        <a href="#" target="_blank">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height: 40px;">
+        </a>
+    </div>
+</div>
+
+
+    &copy; 2025 FreshMart Grocery | Designed with ❤️
+</footer>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("ad-slide");
+    const dots = document.getElementsByClassName("ad-dot");
+
+    function showAds() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+            dots[i].classList.remove("active");
+        }
+
+        slideIndex = (slideIndex + 1) % slides.length;
+
+        slides[slideIndex].classList.add("active");
+        dots[slideIndex].classList.add("active");
+
+        setTimeout(showAds, 1000); // Change every 1 second
+    }
+
+    // Start with the first slide
+    slides[0].classList.add("active");
+    dots[0].classList.add("active");
+
+    setTimeout(showAds, 1000);
+</script>
+
+
+</body>
+</html>
